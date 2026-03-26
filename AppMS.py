@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.set_page_config(page_title="Kalkulator MS PRO"")
+st.set_page_config(page_title="Kalkulator MS PRO")
 st.title("Kalkulator Izotopów MS")
 st.write("Wprowadź intensywności (np. w % lub z detektora). Jeśli jakiegoś piku nie ma na widmie, zostaw 0.")
 
