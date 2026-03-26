@@ -2,8 +2,8 @@ import streamlit as st
 import pandas as pd
 
 # --- PAGE SETTINGS ---
-st.set_page_config(page_title="MS Calculator PRO", page_icon="🔬")
-st.title("🔬 MS Isotope Calculator (PRO Version)")
+st.set_page_config(page_title="MS Calculator PRO")
+st.title("MS Isotope Calculator")
 st.write("Enter the mass (m/z) of the main peak and the heights of the individual peaks.")
 
 st.divider()
@@ -27,7 +27,7 @@ with c5:
     peak_m6 = st.number_input("M+6", value=0.0, step=1.0, format="%.1f")
 
 # --- ANALYSIS BUTTON ---
-if st.button("Analyze spectrum 🚀"):
+if st.button("Analyze spectrum"):
     
     # Normalization relative to peak M
     m_norm = 100.0
@@ -37,7 +37,7 @@ if st.button("Analyze spectrum 🚀"):
     m6_norm = (peak_m6 / peak_m) * 100.0 if peak_m > 0 else 0.0
     
     st.divider()
-    st.subheader("📊 Analysis Results")
+    st.subheader("Analysis Results")
     
     # 1. Carbon Estimation
     carbon_count = round(m1_norm / 1.1)
@@ -78,7 +78,7 @@ if st.button("Analyze spectrum 🚀"):
 
     # --- MISSING MASS CALCULATOR ---
     st.divider()
-    st.subheader("🧩 Molecular Formula Assembly")
+    st.subheader("Molecular Formula Assembly")
     
     # Using monoisotopic masses (the lightest isotopes in the cluster)
     mass_c = carbon_count * 12
@@ -108,7 +108,7 @@ if st.button("Analyze spectrum 🚀"):
 
     # --- VISUALIZATION ---
     st.divider()
-    st.subheader("📈 Cluster Visualization")
+    st.subheader("Cluster Visualization")
     chart_data = pd.DataFrame({
         "Peak": ["M", "M+1", "M+2", "M+4", "M+6"],
         "Intensity [%]": [m_norm, m1_norm, m2_norm, m4_norm, m6_norm]
